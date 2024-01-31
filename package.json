@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/reacte-blueberryLedger-1/",
+    "build": "tsc && vite build --base=/reacte-blueberryLedger-1-Preview/",
     "preview": "vite preview"
   },
   "dependencies": {
