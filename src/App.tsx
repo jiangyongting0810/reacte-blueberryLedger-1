@@ -1,7 +1,6 @@
 export function App() {
   return (
-    <div>
-     app
-    </div>
+    <div>App</div>
   )
 }
+
