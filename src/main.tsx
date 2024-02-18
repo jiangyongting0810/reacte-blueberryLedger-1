@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Router, RouterProvider } from 'react-router-dom'
 import { router } from './routes/router'
+import 'uno.css'
+import './global.scss'
 
 window.console.log(Router)
 
