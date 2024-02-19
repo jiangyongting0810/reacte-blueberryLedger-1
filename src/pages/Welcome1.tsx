@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom'
+import p1 from '../assets/EasyBooks.svg'
 
 export const Welcome1: React.FC = () => {
   return (
     <div>
-      1 <Link to="/welcome/2">下一页</Link>
+      <img src={p1}/>
+      <h2>
+        智能记账 <br/>
+        财务轻松掌握
+      </h2>
     </div>
   )
 }
