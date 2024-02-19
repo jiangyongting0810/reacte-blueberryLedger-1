@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom'
+import p from '../assets/IntelliBooks.svg'
 
 export const Welcome2: React.FC = () => {
   return (
-    <div>
-      2 <Link to="/welcome/3">下一页</Link>
+    <div text-center>
+      <img src={p} w-270px/>
+      <h2 text-32px mt-48px >
+        简单易用 <br />
+        收支一目了然
+      </h2>
     </div>
   )
 }
