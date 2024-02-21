@@ -1,6 +1,7 @@
 {
   "extends": "@antfu",
   "rules": {
+    "@typescript-eslint/brace-style": "off",
     "@typescript-eslint/comma-dangle": "off"
   }
 }
