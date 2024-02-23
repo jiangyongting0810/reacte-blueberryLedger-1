@@ -1,28 +1,20 @@
-import axios from 'axios'
-import useSWR from 'swr'
-
-const fetcher = (path: string) => {
-  return axios.get<{ message: string }>(path)
-}
+import add from '../assets/add.svg'
+import pig from '../assets/pig.svg'
 
 export const Home: React.FC = () => {
-  const { data, error, isValidating, mutate } = useSWR('http://121.196.236.94:3000', fetcher)
-  const isLoading = !data && !error
-  const onClick = async () => {
-    const data = await axios.post('xxx')
-    mutate(data)
-  }
-  console.log('data?.data')
-  console.log(data?.data)
-
-  if (error)
-    return <div>failed to load</div>
-  if (isLoading)
-    return <div>loading...</div>
-  if (isValidating)
-    return <div>正在获取最新值</div>
-
-  return <div text-6xl>
-    {data?.data.message}
+  return <div>
+    <div flex justify-center items-center>
+      <img mt-20vh mb-20vh width="128" height="130" src={pig}/>
+    </div>
+    <div px-16px>
+      <button h-48px w="100%" bg="#5C33BE" b-none text-white
+        rounded-8px>
+        开始记账
+      </button>
+    </div>
+    <button p-4px w-56px h-56px bg="#5C33BE" rounded="50%" b-none text-white
+      text-6xl fixed bottom-16px right-16px>
+      <img src={add} max-w="100%" max-h="100%"/>
+    </button>
   </div>
 }
