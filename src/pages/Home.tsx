@@ -1,15 +1,25 @@
-import axios from 'axios'
+import { Navigate } from 'react-router-dom'
 import useSWR from 'swr'
 import add from '../assets/add.svg'
 import pig from '../assets/pig.svg'
+import { ajax } from '../lib/ajax'
 
 export const Home: React.FC = () => {
-  const { data: meData, error: meError } = useSWR('/api/v1/me', (path) => {
-    return axios.get(path)
-  })
-  const { data: itemsData, error: itemsError } = useSWR(meData ? '/api/v1/items' : null, (path) => {
-    return axios.get(path)
-  })
+  const { data: meData, error: meError } = useSWR('/api/v1/me', async path =>
+    (await ajax.get<Resource<User>>(path)).data.resource
+  )
+  const { data: itemsData, error: itemsError } = useSWR(meData ? '/api/v1/items' : null, async path =>
+    (await ajax.get<Resources<Item>>(path)).data
+  )
+  const isLoadingMe = !meData && !meError
+  const isLoadingItems = meData && !itemsData && !itemsError
+
+  if (isLoadingMe || isLoadingItems)
+    return <div>加载中</div>
+  if (itemsData?.resources[0])
+    return <Navigate to="/items"/>
+
+  // eslint-disable-next-line no-console
   console.log(meData, meError, itemsData, itemsError)
   return <div>
     <div flex justify-center items-center>
