@@ -1,5 +1,14 @@
-export const Topnav: React.FC = () => {
+import { Icon } from './Icon'
+
+interface Props {
+  title?: string
+}
+
+export const Topnav: React.FC<Props> = ({ title }) => {
   return (
-    <div>Topnav </div>
+    <div text-white flex items-center p-16px>
+      <Icon name="menu" className='w-24px h-24px mr-16px'/>
+      <h1 text-24px>{title}11</h1>
+    </div>
   )
 }
